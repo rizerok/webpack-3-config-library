@@ -1,0 +1,16 @@
+{
+  "name": "webpack3-config-native",
+  "version": "0.0.1",
+  "description": "native config with webpack 3",
+  "main": "index.js",
+  "scripts": {
+    "build:dev":"webpack --progress --env=dev",
+    "watch":"webpack --watch --progress --env=dev"
+  },
+  "author": "alex",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^3.4.1",
+    "webpack-merge": "^4.1.0"
+  }
+}
