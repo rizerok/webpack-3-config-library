@@ -17,10 +17,8 @@ export default {
     test2,
     test3
 };
-//qwe
 
 //TODO
-//dev-server
 //stylus
 //html plugin
 //aliases

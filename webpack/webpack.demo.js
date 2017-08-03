@@ -12,9 +12,6 @@ module.exports = {
     devtool:'cheap-eval-source-map',
     devServer:{
         contentBase: path.join(__dirname,'../','demo'),
-        open:true,
-        openPage:'demo1',
-        port:3000
+        openPage:'demo1'
     }
-
 };

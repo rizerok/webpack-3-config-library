@@ -30,10 +30,16 @@ module.exports = {
                 }
             }
         ]
-    }
-    // plugins:[
-    //     new webpack.optimize.UglifyJsPlugin({
-    //
-    //     })
-    // ]
+    },
+    devServer:{
+        port:3000,
+        open:true,
+        hot: true
+    },
+    plugins:[
+        new webpack.HotModuleReplacementPlugin()
+        // new webpack.optimize.UglifyJsPlugin({
+        //
+        // })
+    ]
 };
