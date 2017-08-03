@@ -1,16 +1,19 @@
 {
   "name": "webpack-3-config-library",
   "version": "0.0.1",
-  "description": "native config with webpack 3",
+  "description": "my library config with webpack 3",
   "main": "dist/app.js",
   "scripts": {
-    "build:dev":"webpack --progress --env=dev --display-modules",
-    "build:lib":"webpack --progress --env=lib --display-modules",
-    "watch":"webpack --watch --progress --env=dev"
+    "build:dev": "webpack --progress --env=dev --display-modules",
+    "build:lib": "webpack --progress --env=lib --display-modules",
+    "watch": "webpack --watch --progress --env=dev"
   },
   "author": "alex",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
     "webpack": "^3.4.1",
     "webpack-merge": "^4.1.0"
   }

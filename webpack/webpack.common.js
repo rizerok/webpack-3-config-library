@@ -13,6 +13,25 @@ module.exports = {
     output:{
         filename:'[name].js',
         path:path.join(__dirname,'../','dist')
+    },
+    module:{
+        rules:[
+            {
+                test:/\.js$/,
+                include:path.join(__dirname,'../','source','app'),
+                //exclude:'/node-modules/',
+                use:{
+                    loader:'babel-loader',
+                    options:{
+                        presets:[
+                            'env'//https://babeljs.io/docs/plugins/preset-env/
+                        ],
+                        cacheDirectory:true
+                    }
+                }
+            }
+
+        ]
     }
     // plugins:[
     //     new webpack.optimize.UglifyJsPlugin({
