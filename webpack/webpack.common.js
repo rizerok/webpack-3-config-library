@@ -8,7 +8,7 @@ const app = {
 };
 module.exports = {
     entry:{
-        app:'./source/app/app.js'
+        app:path.resolve('source','app','app.js')
     },
     output:{
         filename:'[name].js',
@@ -19,7 +19,6 @@ module.exports = {
             {
                 test:/\.js$/,
                 include:path.join(__dirname,'../','source','app'),
-                //exclude:'/node-modules/',
                 use:{
                     loader:'babel-loader',
                     options:{
@@ -30,7 +29,6 @@ module.exports = {
                     }
                 }
             }
-
         ]
     }
     // plugins:[
