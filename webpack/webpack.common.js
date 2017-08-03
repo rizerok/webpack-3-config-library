@@ -1,14 +1,11 @@
 const path = require('path');
-const pj = require(path.join(__dirname,'../','package.json'));
-//const dependencies = Object.keys(pj.dependencies);
+const webpack = require('webpack');
 
+const pj = require(path.join(__dirname,'../','package.json'));
 const app = {
     name:pj.name[0].toUpperCase() + pj.name.slice(1),
     path:path.join(__dirname,'app')
 };
-
-//TODO check console path.resolve and path.join
-
 module.exports = {
     entry:{
         app:'./source/app/app.js'
@@ -17,4 +14,9 @@ module.exports = {
         filename:'[name].js',
         path:path.join(__dirname,'../','dist')
     }
+    // plugins:[
+    //     new webpack.optimize.UglifyJsPlugin({
+    //
+    //     })
+    // ]
 };

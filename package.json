@@ -1,10 +1,11 @@
 {
-  "name": "webpack3-config-native",
+  "name": "webpack-3-config-library",
   "version": "0.0.1",
   "description": "native config with webpack 3",
-  "main": "index.js",
+  "main": "dist/app.js",
   "scripts": {
-    "build:dev":"webpack --progress --env=dev",
+    "build:dev":"webpack --progress --env=dev --display-modules",
+    "build:lib":"webpack --progress --env=lib --display-modules",
     "watch":"webpack --watch --progress --env=dev"
   },
   "author": "alex",
