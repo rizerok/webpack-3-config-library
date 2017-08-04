@@ -1,7 +1,7 @@
 node_modules/**
 .idea/
 .DS_Store
-dist/**
-dev/index.js
+dist
+dev/compiled
 demo/demo1/index.js
 demo/demo2/index.js

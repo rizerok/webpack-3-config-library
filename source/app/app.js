@@ -19,6 +19,15 @@ export default {
 };
 
 //TODO
-//stylus
+//rename app to lib
+//add lib name from pj
+//stylus(demo,dev,prod)
+//autoprefixer
 //html plugin
 //aliases
+//cleanPlugin
+//production
+//babel-polifil
+//codepen +template on codepen
+//windows compatibility
+//refactor paths
