@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
@@ -9,11 +10,11 @@ let config = {
     },
     output:{
         filename:'[name]/compiled/index.js',
-        path:path.join(__dirname,'../','demo')
+        path:path.join(__dirname,'../','demo','handled')
     },
     devtool:'cheap-eval-source-map',
     devServer:{
-        contentBase: path.join(__dirname,'../','demo'),
+        contentBase: path.join(__dirname,'../','demo','handled'),
         openPage:'demo1/compiled',
         watchContentBase: true
     },
@@ -21,27 +22,28 @@ let config = {
         new HtmlWebpackHarddiskPlugin()
     ]
 };
-//demo config
-const demo = require(path.join(__dirname,'../','demo','demo.config.json'));
+
+//read demo folders
+const demo = fs.readdirSync(path.join(__dirname,'../','demo','handled'));
 //for CleanWebpackPlugin
 let cwpPaths = [];
 //gen
-for(key in demo){
-    config.entry[key] = path.resolve('demo',key,'source','index');
-    cwpPaths.push(path.join(key,'compiled'));
+demo.forEach(name=>{
+    config.entry[name] = path.resolve('demo','handled',name,'source','index');
+    cwpPaths.push(path.join(name,'compiled'));
     config.plugins.unshift(
         new HtmlWebpackPlugin({
             alwaysWriteToDisk: true,
-            title:key,
+            title:name,
             inject:false,
-            template: path.join(__dirname,'../','demo',key,'source','index.html.ejs'),
-            filename:path.join(__dirname,'../','demo',key,'compiled','index.html')
+            template: path.join(__dirname,'../','demo','handled',name,'source','index.html.ejs'),
+            filename:path.join(__dirname,'../','demo','handled',name,'compiled','index.html')
         }),
     );
-}
+});
 
 let cwp = new CleanWebpackPlugin(cwpPaths,{
-    root:     path.join(__dirname,'../','demo'),
+    root:     path.join(__dirname,'../','demo','handled'),
     verbose:  true
 });
 

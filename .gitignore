@@ -4,5 +4,5 @@ node_modules/**
 dist
 dev/compiled
 
-demo/demo1/compiled
-demo/demo2/compiled
+demo/handled/demo1/compiled
+demo/handled/demo2/compiled

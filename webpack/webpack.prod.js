@@ -1,7 +1,8 @@
 const path = require('path');
+const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const pj = require(path.join(__dirname,'../','package.json'));
-const demo = require(path.join(__dirname,'../','demo','demo.config.json'));
+const demo = fs.readdirSync(path.join(__dirname,'../','demo','handled'));
 
 module.exports = {
     output:{

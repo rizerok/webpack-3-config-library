@@ -3,5 +3,5 @@ node_modules/**
 .DS_Store
 dist
 dev/compiled
-<% for(key in htmlWebpackPlugin.options.demo){ %>
-<%= `demo/${key}/compiled` %><% } %>
+<% htmlWebpackPlugin.options.demo.forEach(name=>{ %>
+<%= `demo/handled/${name}/compiled` %><% }); %>
