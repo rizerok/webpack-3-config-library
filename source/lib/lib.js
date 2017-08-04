@@ -19,8 +19,8 @@ export default {
 };
 
 //TODO
-//rename app to lib
-//add lib name from pj
+//add lib name from pj?
+
 //stylus(demo,dev,prod)
 //autoprefixer
 //aliases

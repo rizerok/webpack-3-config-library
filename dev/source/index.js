@@ -1,2 +1,2 @@
-import lib from '../../source/app/app';
+import lib from '../../source/lib/lib';
 console.log(lib.test1);

@@ -1,2 +1,2 @@
-import {test2} from '../../../../dist/app';
+import {test2} from '../../../../dist/lib';
 console.log(test2);

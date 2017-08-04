@@ -6,7 +6,7 @@ const demo = fs.readdirSync(path.join(__dirname,'../','demo','handled'));
 
 module.exports = {
     output:{
-        library:'test',
+        library:'lib',
         libraryTarget:'umd'
     },
     devtool:'cheap-module-source-map',

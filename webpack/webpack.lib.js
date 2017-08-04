@@ -1,6 +1,6 @@
 module.exports = {
     output:{
-        library:'test',
+        library:'lib',
         libraryTarget:'umd'
     },
     devtool:'cheap-eval-source-map'
