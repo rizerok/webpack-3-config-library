@@ -1,5 +1,5 @@
 export var test1 = {
-    title:'Hello world1'
+    title:'Hello world1111'
 };
 export var test2 = {
     title:'Hello world2'
@@ -23,7 +23,6 @@ export default {
 //add lib name from pj
 //stylus(demo,dev,prod)
 //autoprefixer
-//html plugin
 //aliases
 //cleanPlugin
 //production
@@ -31,3 +30,4 @@ export default {
 //codepen +template on codepen
 //windows compatibility
 //refactor paths
+//demo config

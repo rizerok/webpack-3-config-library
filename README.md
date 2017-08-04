@@ -1,7 +1,10 @@
-Webpack-3-config-native v0.0.1
+Webpack App v0.0.1
+===================
+my library config with webpack 3
 
-Install
+Install:
+-------------------
 ```sh
-git clone https://github.com/rizerok/webpack-3-config-library .
+git clone https://github.com/rizerok/webpack-3-config-library.git .
 npm i
 ```

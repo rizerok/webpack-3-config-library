@@ -7,7 +7,7 @@ module.exports = function(env) {
     const config = require(`./webpack/webpack.${env}.js`);
     
     return merge.strategy({
-        entry:'replace',
+        entry:'replace'
         //plugins:'replace'
     })(
         commonConfig,

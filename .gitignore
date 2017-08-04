@@ -3,5 +3,5 @@ node_modules/**
 .DS_Store
 dist
 dev/compiled
-demo/demo1/index.js
-demo/demo2/index.js
+demo/demo1/compiled
+demo/demo2/compiled
