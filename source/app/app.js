@@ -25,9 +25,8 @@ export default {
 //autoprefixer
 //aliases
 //cleanPlugin
-//production
+//production(uglify)
 //babel-polifil
 //codepen +template on codepen
 //windows compatibility
 //refactor paths
-//demo config

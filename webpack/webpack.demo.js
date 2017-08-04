@@ -3,13 +3,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
-module.exports = {
+let config = {
     entry:{
-        demo1:path.resolve('demo','demo1','source','index'),
-        demo2:path.resolve('demo','demo2','source','index')
+
     },
     output:{
-        filename:'[name]//index.js',
+        filename:'[name]/compiled/index.js',
         path:path.join(__dirname,'../','demo')
     },
     devtool:'cheap-eval-source-map',
@@ -19,30 +18,33 @@ module.exports = {
         watchContentBase: true
     },
     plugins:[
-        new CleanWebpackPlugin(
-            [
-                path.join('demo1','compiled'),
-                path.join('demo2','compiled')
-            ],
-            {
-                root:     path.join(__dirname,'../','demo'),
-                verbose:  true
-            }
-        ),
-        new HtmlWebpackPlugin({
-            alwaysWriteToDisk: true,
-            title:'demo1',
-            inject:false,
-            template: path.join(__dirname,'../','demo','demo1','source','index.html.ejs'),
-            filename:path.join(__dirname,'../','demo','demo1','compiled','index.html')
-        }),
-        new HtmlWebpackPlugin({
-            alwaysWriteToDisk: true,
-            title:'demo2',
-            inject:false,
-            template: path.join(__dirname,'../','demo','demo2','source','index.html.ejs'),
-            filename:path.join(__dirname,'../','demo','demo2','compiled','index.html')
-        }),
         new HtmlWebpackHarddiskPlugin()
     ]
 };
+//demo config
+const demo = require(path.join(__dirname,'../','demo','demo.config.json'));
+//for CleanWebpackPlugin
+let cwpPaths = [];
+//gen
+for(key in demo){
+    config.entry[key] = path.resolve('demo',key,'source','index');
+    cwpPaths.push(path.join(key,'compiled'));
+    config.plugins.unshift(
+        new HtmlWebpackPlugin({
+            alwaysWriteToDisk: true,
+            title:key,
+            inject:false,
+            template: path.join(__dirname,'../','demo',key,'source','index.html.ejs'),
+            filename:path.join(__dirname,'../','demo',key,'compiled','index.html')
+        }),
+    );
+}
+
+let cwp = new CleanWebpackPlugin(cwpPaths,{
+    root:     path.join(__dirname,'../','demo'),
+    verbose:  true
+});
+
+config.plugins.unshift(cwp);
+
+module.exports = config;

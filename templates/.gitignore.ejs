@@ -1,0 +1,7 @@
+node_modules/**
+.idea/
+.DS_Store
+dist
+dev/compiled
+<% for(key in htmlWebpackPlugin.options.demo){ %>
+<%= `demo/${key}/compiled` %><% } %>

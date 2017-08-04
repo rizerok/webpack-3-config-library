@@ -1,4 +1,4 @@
-Webpack App v0.0.1
+webpack-3-config-library v0.0.1
 ===================
 my library config with webpack 3
 

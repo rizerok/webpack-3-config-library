@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const pj = require(path.join(__dirname,'../','package.json'));
+const demo = require(path.join(__dirname,'../','demo','demo.config.json'));
 
 module.exports = {
     output:{
@@ -19,6 +20,12 @@ module.exports = {
                 description: pj.description,
                 repository:pj.repository.url
             }
+        }),
+        new HtmlWebpackPlugin({
+            inject:false,
+            template: path.join(__dirname,'../','templates','.gitignore.ejs'),
+            filename:path.join(__dirname,'../','.gitignore'),
+            demo
         })
     ]
     //+uglify
