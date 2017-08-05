@@ -2,6 +2,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+let extractStylus = new ExtractTextPlugin({
+    filename:'[name].css'
+});
 
 module.exports = {
     entry:{
@@ -10,6 +15,22 @@ module.exports = {
     output:{
         filename:'[name].js',
         path:path.join(__dirname,'../','dev','compiled')
+    },
+    module:{
+        rules:[
+            {
+                test:/\.styl$/,
+                use:extractStylus.extract({
+                    fallback: "style-loader",
+                    use:[{
+                        loader:'css-loader'
+                    },
+                        {
+                            loader:'stylus-loader'
+                        }]
+                })
+            }
+        ]
     },
     devtool:'cheap-eval-source-map',
     devServer:{
@@ -32,6 +53,7 @@ module.exports = {
             template: path.join(__dirname,'../','dev','source','index.html.ejs'),
             filename:path.join(__dirname,'../','dev','compiled','index.html')
         }),
-        new HtmlWebpackHarddiskPlugin()
+        new HtmlWebpackHarddiskPlugin(),
+        extractStylus
     ]
 };

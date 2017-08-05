@@ -1,3 +1,4 @@
+//import '../styles/style.styl';
 export var test1 = {
     title:'Hello world1111'
 };
@@ -21,7 +22,7 @@ export default {
 //TODO
 //add lib name from pj?
 
-//stylus(demo,dev,prod)
+//stylus(demo)
 //autoprefixer
 //aliases
 //cleanPlugin

@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <% for (let key in htmlWebpackPlugin.files.css) { %>
+    <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[key] %>"><% } %>
 </head>
 <body>
 <h1>1222</h1>

@@ -1,11 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const pj = require(path.join(__dirname,'../','package.json'));
 const app = {
     name:pj.name[0].toUpperCase() + pj.name.slice(1)
     //path:path.join(__dirname,'app')
 };
+let extractStylus = new ExtractTextPlugin({
+    filename:'[name].css'
+});
+
 module.exports = {
     entry:{
         lib:path.resolve('source','lib','lib.js')
@@ -28,6 +33,18 @@ module.exports = {
                         cacheDirectory:true
                     }
                 }
+            },
+            {
+                test:/\.styl$/,
+                use:extractStylus.extract({
+                    fallback: "style-loader",
+                    use:[{
+                            loader:'css-loader'
+                        },
+                        {
+                            loader:'stylus-loader'
+                        }]
+                })
             }
         ]
     },
@@ -37,6 +54,6 @@ module.exports = {
         hot: true
     },
     plugins:[
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
     ]
 };
