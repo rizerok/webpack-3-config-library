@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const pj = require(path.join(__dirname,'../','package.json'));
-const demo = fs.readdirSync(path.join(__dirname,'../','demo','handled'));
+//const demo = fs.readdirSync(path.join(__dirname,'../','demo','handled'));
 
 module.exports = {
     output:{
@@ -26,7 +26,7 @@ module.exports = {
             inject:false,
             template: path.join(__dirname,'../','templates','.gitignore.ejs'),
             filename:path.join(__dirname,'../','.gitignore'),
-            demo
+            //demo
         })
     ]
     //+uglify

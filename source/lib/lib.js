@@ -20,9 +20,8 @@ export default {
 };
 
 //TODO
-//add lib name from pj?
 
-//stylus(demo)
+//hmr
 //autoprefixer
 //aliases
 //cleanPlugin

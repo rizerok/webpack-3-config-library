@@ -3,11 +3,11 @@ const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
-//const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-// let extractStylus = new ExtractTextPlugin({
-//     filename:'[name]/compiled/style.css'
-// });
+let extractStylus = new ExtractTextPlugin({
+    filename:'[name]/compiled/style.css'
+});
 let config = {
     entry:{
 
@@ -22,9 +22,25 @@ let config = {
         openPage:'demo1/compiled',
         watchContentBase: true
     },
+    module:{
+        rules:[
+            {
+                test:/\.styl$/,
+                use:extractStylus.extract({
+                    fallback: "style-loader",
+                    use:[{
+                            loader:'css-loader'
+                        },
+                        {
+                            loader:'stylus-loader'
+                        }]
+                })
+            }
+        ]
+    },
     plugins:[
         new HtmlWebpackHarddiskPlugin(),
-        //extractStylus
+        extractStylus
     ]
 };
 
