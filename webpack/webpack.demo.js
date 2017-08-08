@@ -29,11 +29,17 @@ let config = {
                 use:extractStylus.extract({
                     fallback: "style-loader",
                     use:[{
-                            loader:'css-loader'
-                        },
-                        {
-                            loader:'stylus-loader'
-                        }]
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
+                    {
+                        loader:'postcss-loader'
+                    },
+                    {
+                        loader:'stylus-loader'
+                    }]
                 })
             }
         ]

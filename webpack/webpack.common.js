@@ -39,7 +39,13 @@ module.exports = {
                 use:extractStylus.extract({
                     fallback: "style-loader",
                     use:[{
-                            loader:'css-loader'
+                            loader: 'css-loader',
+                            options: {
+                                importLoaders: 1
+                            }
+                        },
+                        {
+                            loader:'postcss-loader'
                         },
                         {
                             loader:'stylus-loader'
@@ -54,6 +60,7 @@ module.exports = {
         hot: true
     },
     plugins:[
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        extractStylus
     ]
 };

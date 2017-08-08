@@ -31,6 +31,7 @@ let configComplete = function (env) {
             }
         }
     )(configCommon,config);
+    console.log(complete);
     return complete;
 };
 

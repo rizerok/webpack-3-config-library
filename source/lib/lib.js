@@ -22,7 +22,7 @@ export default {
 //TODO
 
 //hmr
-//autoprefixer
+
 //aliases
 //cleanPlugin
 //production(uglify)
