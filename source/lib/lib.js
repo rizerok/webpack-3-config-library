@@ -1,16 +1,16 @@
 //import '../styles/style.styl';
 export var test1 = {
-    title:'Hello world1111'
+    title:'Test'
 };
 export var test2 = {
-    title:'Hello world2'
+    title:'Test2'
 };
 export var test3 = class Test3{
     constructor(){
 
     }
     static title(){
-        return 'Hello world3';
+        return 'Test3';
     }
 };
 export default {
@@ -20,13 +20,9 @@ export default {
 };
 
 //TODO
-
-//hmr
-
-//aliases
-//cleanPlugin
 //production(uglify)
 //babel-polifil
 //codepen +template on codepen
 //windows compatibility
 //refactor paths
+//hmr

@@ -2,7 +2,8 @@
   "name": "webpack-3-config-library",
   "version": "0.0.1",
   "description": "my library config with webpack 3",
-  "main": "dist/app.js",
+  "main": "dist/lib.js",
+  "module": "source/lib/lib.js",
   "scripts": {
     "build:dev": "webpack --progress --env=dev --display-modules",
     "build:lib": "webpack --progress --env=lib --display-modules",

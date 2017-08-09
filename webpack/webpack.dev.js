@@ -15,8 +15,8 @@ module.exports = {
     devtool:'cheap-eval-source-map',
     devServer:{
         contentBase: path.join(__dirname,'../','dev','compiled'),
-        openPage:''
-        //watchContentBase: true
+        openPage:'',
+        watchContentBase: true
     },
     plugins:[
         new CleanWebpackPlugin(

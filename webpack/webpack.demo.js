@@ -16,6 +16,11 @@ let config = {
         filename:'[name]/compiled/index.js',
         path:path.join(__dirname,'../','demo','handled')
     },
+    resolve:{
+        alias:{
+
+        }
+    },
     devtool:'cheap-eval-source-map',
     devServer:{
         contentBase: path.join(__dirname,'../','demo','handled'),
@@ -52,6 +57,7 @@ let config = {
 
 //read demo folders
 const demo = fs.readdirSync(path.join(__dirname,'../','demo','handled'));
+console.log('demo',demo);
 //for CleanWebpackPlugin
 let cwpPaths = [];
 //gen
@@ -67,6 +73,7 @@ demo.forEach(name=>{
             filename:path.join(__dirname,'../','demo','handled',name,'compiled','index.html')
         }),
     );
+    config.resolve.alias[name] = path.join(__dirname,'../','demo','handled',name,'source');
 });
 
 let cwp = new CleanWebpackPlugin(cwpPaths,{

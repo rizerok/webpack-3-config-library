@@ -11,6 +11,8 @@ let extractStylus = new ExtractTextPlugin({
     filename:'[name].css'
 });
 
+
+
 module.exports = {
     entry:{
         lib:path.resolve('source','lib','lib.js')
@@ -18,6 +20,15 @@ module.exports = {
     output:{
         filename:'[name].js',
         path:path.join(__dirname,'../','dist')
+    },
+    resolve:{
+        alias:{
+            root:path.join(__dirname,'../'),
+            dist:path.join(__dirname,'../','dist'),
+            lib:path.join(__dirname,'../','source','lib'),
+            style:path.join(__dirname,'../','source','style'),
+            dev:path.join(__dirname,'../','dev','source')
+        }
     },
     module:{
         rules:[
