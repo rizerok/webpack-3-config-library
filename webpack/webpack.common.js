@@ -3,10 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const pj = require(path.join(__dirname,'../','package.json'));
-const app = {
-    name:pj.name[0].toUpperCase() + pj.name.slice(1)
-    //path:path.join(__dirname,'app')
-};
+
 let extractStylus = new ExtractTextPlugin({
     filename:'[name].css'
 });

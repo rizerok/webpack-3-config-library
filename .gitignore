@@ -3,7 +3,6 @@ node_modules/**
 .DS_Store
 dist
 dev/compiled
-webpack.last.js
 
 demo/handled/demo1/compiled
 demo/handled/demo2/compiled
