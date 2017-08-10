@@ -5,10 +5,10 @@
   "main": "dist/lib.js",
   "module": "source/lib/lib.js",
   "scripts": {
-    "build:dev": "webpack --progress --env=dev --display-modules",
-    "build:lib": "webpack --progress --env=lib --display-modules",
-    "build:demo": "webpack --progress --env=demo --display-modules",
-    "build:prod": "webpack --progress --env=prod --display-modules",
+    "build:dev": "webpack --progress --env=dev",
+    "build:lib": "webpack --progress --env=lib",
+    "build:demo": "webpack --progress --env=demo",
+    "build:prod": "webpack --progress --env=prod",
     "watch:dev": "webpack-dev-server --env=dev --progress",
     "watch:demo": "webpack-dev-server --env=demo --progress"
   },
@@ -37,5 +37,10 @@
   },
   "browserslist": [
     "> 3%"
-  ]
+  ],
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "install": "^0.10.1",
+    "npm": "^5.3.0"
+  }
 }

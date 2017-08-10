@@ -1,11 +1,12 @@
+import "babel-polyfill";
 //import '../styles/style.styl';
-export var test1 = {
+export const test1 = {
     title:'Test'
 };
-export var test2 = {
+export const test2 = {
     title:'Test2'
 };
-export var test3 = class Test3{
+export const test3 = class Test3{
     constructor(){
 
     }
@@ -13,14 +14,20 @@ export var test3 = class Test3{
         return 'Test3';
     }
 };
+export let test4 = new Promise((resolve, reject) => {
+            setTimeout(function(){
+                resolve("Success!");
+            }, 3000);
+        });
 export default {
     test1,
     test2,
-    test3
+    test3,
+    test4
 };
 
 //TODO
-//production(uglify)
+
 //babel-polifil
 //codepen +template on codepen
 //windows compatibility
