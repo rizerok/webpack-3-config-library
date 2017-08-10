@@ -28,7 +28,5 @@ export default {
 
 //TODO
 
-//codepen +template on codepen
-//hmr(style only)
-//check on win
 //eslint
+//check on win
