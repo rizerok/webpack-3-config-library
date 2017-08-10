@@ -31,3 +31,4 @@ export default {
 //codepen +template on codepen
 //hmr(style only)
 //check on win
+//eslint
