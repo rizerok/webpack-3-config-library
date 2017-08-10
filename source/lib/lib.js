@@ -28,8 +28,6 @@ export default {
 
 //TODO
 
-//babel-polifil
 //codepen +template on codepen
-//windows compatibility
 //refactor paths
 //hmr
