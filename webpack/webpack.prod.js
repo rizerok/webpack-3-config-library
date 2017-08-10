@@ -2,8 +2,8 @@ const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const pj = require(path.join(__dirname,'../','package.json'));
-const demo = fs.readdirSync(path.join(__dirname,'../','demo','handled'));
+const pj = require(path.resolve('package.json'));
+const demo = fs.readdirSync(path.resolve('demo','handled'));
 
 module.exports = {
     output:{
@@ -14,8 +14,8 @@ module.exports = {
     plugins:[
         new HtmlWebpackPlugin({
             inject:false,
-            template: path.join(__dirname,'../','templates','README.md.ejs'),
-            filename:path.join(__dirname,'../','README.md'),
+            template: path.resolve('templates','README.md.ejs'),
+            filename:path.resolve('README.md'),
             info:{
                 name: pj.name,
                 version: pj.version,
@@ -25,8 +25,8 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             inject:false,
-            template: path.join(__dirname,'../','templates','.gitignore.ejs'),
-            filename:path.join(__dirname,'../','.gitignore'),
+            template: path.resolve('templates','.gitignore.ejs'),
+            filename:path.resolve('.gitignore'),
             demo
         }),
         new webpack.optimize.UglifyJsPlugin({

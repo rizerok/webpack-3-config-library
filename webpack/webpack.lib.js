@@ -11,7 +11,7 @@ module.exports = {
         new CleanWebpackPlugin(
             ['dist'],
             {
-                root:     path.join(__dirname,'../',),
+                root:     path.resolve(),
                 verbose:  true
             }
         )

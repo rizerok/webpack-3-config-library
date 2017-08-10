@@ -10,11 +10,11 @@ let extractStylus = new ExtractTextPlugin({
 });
 let config = {
     entry:{
-
+        //generate
     },
     output:{
-        filename:'[name]/compiled/index.js',
-        path:path.join(__dirname,'../','demo','handled')
+        filename:path.join('[name]','compiled','index.js'),
+        path:path.resolve('demo','handled')
     },
     resolve:{
         alias:{
@@ -23,7 +23,7 @@ let config = {
     },
     devtool:'cheap-eval-source-map',
     devServer:{
-        contentBase: path.join(__dirname,'../','demo','handled'),
+        contentBase: path.resolve('demo','handled'),
         openPage:'demo1/compiled',
         watchContentBase: true
     },
@@ -56,8 +56,7 @@ let config = {
 };
 
 //read demo folders
-const demo = fs.readdirSync(path.join(__dirname,'../','demo','handled'));
-console.log('demo',demo);
+const demo = fs.readdirSync(path.resolve('demo','handled'));
 //for CleanWebpackPlugin
 let cwpPaths = [];
 //gen
@@ -69,15 +68,15 @@ demo.forEach(name=>{
             alwaysWriteToDisk: true,
             title:name,
             inject:false,
-            template: path.join(__dirname,'../','demo','handled',name,'source','index.html.ejs'),
-            filename:path.join(__dirname,'../','demo','handled',name,'compiled','index.html')
+            template: path.resolve('demo','handled',name,'source','index.html.ejs'),
+            filename:path.resolve('demo','handled',name,'compiled','index.html')
         }),
     );
-    config.resolve.alias[name] = path.join(__dirname,'../','demo','handled',name,'source');
+    config.resolve.alias[name] = path.resolve('demo','handled',name,'source');
 });
 
 let cwp = new CleanWebpackPlugin(cwpPaths,{
-    root:     path.join(__dirname,'../','demo','handled'),
+    root:     path.resolve('demo','handled'),
     verbose:  true
 });
 

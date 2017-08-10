@@ -29,5 +29,5 @@ export default {
 //TODO
 
 //codepen +template on codepen
-//refactor paths
-//hmr
+//hmr(style only)
+//check on win

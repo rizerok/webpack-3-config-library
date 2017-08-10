@@ -2,13 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const pj = require(path.join(__dirname,'../','package.json'));
+//const pj = require(path.resolve('package.json'));
 
 let extractStylus = new ExtractTextPlugin({
     filename:'[name].css'
 });
-
-
 
 module.exports = {
     entry:{
@@ -16,22 +14,22 @@ module.exports = {
     },
     output:{
         filename:'[name].js',
-        path:path.join(__dirname,'../','dist')
+        path:path.resolve('dist')
     },
     resolve:{
         alias:{
-            root:path.join(__dirname,'../'),
-            dist:path.join(__dirname,'../','dist'),
-            lib:path.join(__dirname,'../','source','lib'),
-            style:path.join(__dirname,'../','source','style'),
-            dev:path.join(__dirname,'../','dev','source')
+            root:path.resolve(),
+            dist:path.resolve('dist'),
+            lib:path.resolve('source','lib'),
+            style:path.resolve('source','style'),
+            dev:path.resolve('dev','source')
         }
     },
     module:{
         rules:[
             {
                 test:/\.js$/,
-                include:path.join(__dirname,'../','source','lib'),
+                include:path.resolve('source','lib'),
                 use:{
                     loader:'babel-loader',
                     options:{

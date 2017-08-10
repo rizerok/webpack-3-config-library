@@ -1,5 +1,4 @@
 const merge = require('webpack-merge');
-const path = require('path');
 
 const configCommon = require('./webpack/webpack.common');
 
@@ -8,7 +7,6 @@ let configComplete = function (env) {
     let complete =  merge(
         {
             customizeArray(a, b, key) {
-                console.log('arr key',key);
                 if(key === 'module.rules'){
                     for(let i=0;i<a.length;i++){
                         for(let j=0;j<b.length;j++){

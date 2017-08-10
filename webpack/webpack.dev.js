@@ -10,11 +10,11 @@ module.exports = {
     },
     output:{
         filename:'[name].js',
-        path:path.join(__dirname,'../','dev','compiled')
+        path:path.resolve('dev','compiled')
     },
     devtool:'cheap-eval-source-map',
     devServer:{
-        contentBase: path.join(__dirname,'../','dev','compiled'),
+        contentBase: path.resolve('dev','compiled'),
         openPage:'',
         watchContentBase: true
     },
@@ -22,7 +22,7 @@ module.exports = {
         new CleanWebpackPlugin(
             ['compiled'],
             {
-                root:     path.join(__dirname,'../','dev'),
+                root:     path.resolve('dev'),
                 verbose:  true
             }
         ),
@@ -30,8 +30,8 @@ module.exports = {
             alwaysWriteToDisk: true,
             title:'for library develop',
             inject:false,
-            template: path.join(__dirname,'../','dev','source','index.html.ejs'),
-            filename:path.join(__dirname,'../','dev','compiled','index.html')
+            template: path.resolve('dev','source','index.html.ejs'),
+            filename:path.resolve('dev','compiled','index.html')
         }),
         new HtmlWebpackHarddiskPlugin()
     ]
