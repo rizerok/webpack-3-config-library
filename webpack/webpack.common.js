@@ -28,6 +28,15 @@ module.exports = {
     module:{
         rules:[
             {
+                enforce: 'pre',
+                test: /\.js$/,
+                loader: 'eslint-loader',
+                include: [
+                    path.resolve('source', 'lib'),
+                    path.resolve('dev', 'source')
+                ]
+            },
+            {
                 test:/\.js$/,
                 include:path.resolve('source','lib'),
                 use:{
