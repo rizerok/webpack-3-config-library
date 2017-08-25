@@ -1,6 +1,6 @@
 {
   "name": "webpack-config-library",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "my library config with webpack 3",
   "main": "dist/lib.js",
   "module": "source/lib/lib.js",
