@@ -1,5 +1,5 @@
 {
-  "name": "webpack-3-config-library",
+  "name": "webpack-config-library",
   "version": "0.0.1",
   "description": "my library config with webpack 3",
   "main": "dist/lib.js",

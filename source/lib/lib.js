@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-//import '../styles/style.styl';
+import '../styles/style.styl';
 export const test1 = {
     title:'Test'
 };

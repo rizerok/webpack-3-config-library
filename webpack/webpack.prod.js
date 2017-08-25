@@ -2,13 +2,45 @@ const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const pj = require(path.resolve('package.json'));
 const demo = fs.readdirSync(path.resolve('demo','handled'));
+
+let extractStylus = new ExtractTextPlugin({
+    filename: '[name].css'
+});
 
 module.exports = {
     output:{
         library:'lib',
-        libraryTarget:'umd'
+        libraryTarget:'umd',
+        libraryExport: 'default'
+    },
+    module:{
+        rules:[
+            {
+                test: /\.styl$/,
+                use: extractStylus.extract({
+                    fallback: 'style-loader',
+                    use: [{
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 2,
+                            minimize:true
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options:{
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'stylus-loader'
+                    }]
+                })
+            }
+        ]
     },
     devtool:'cheap-module-source-map',
     plugins:[
@@ -30,10 +62,16 @@ module.exports = {
             demo
         }),
         new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                drop_console: true
-            },
-            comments: false
-        })
+            uglifyOptions:{
+                compress: {
+                    drop_console: true
+                },
+                warnings:false,
+                output:{
+                    comments: false
+                }
+            }
+        }),
+        extractStylus
     ]
 };

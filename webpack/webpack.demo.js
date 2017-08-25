@@ -5,9 +5,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+let extractCss = new ExtractTextPlugin({
+    filename:'[name]/compiled/vendor.css'
+});
 let extractStylus = new ExtractTextPlugin({
     filename:'[name]/compiled/style.css'
 });
+
 let config = {
     entry:{
         //generate
@@ -29,6 +33,24 @@ let config = {
     },
     module:{
         rules:[
+            // {
+            //     test:/\.css$/,
+            //     use:[
+            //         {
+            //             loader:'style-loader'
+            //         },
+            //         {
+            //             loader:'css-loader'
+            //         }
+            //     ]
+            // },
+            {
+                test: /\.css$/,
+                use: extractCss.extract({
+                    fallback: "style-loader",
+                    use: "css-loader"
+                })
+            },
             {
                 test:/\.styl$/,
                 use:extractStylus.extract({
@@ -36,21 +58,22 @@ let config = {
                     use:[{
                         loader: 'css-loader',
                         options: {
-                            importLoaders: 1
+                            importLoaders: 2
                         }
                     },
-                    {
-                        loader:'postcss-loader'
-                    },
-                    {
-                        loader:'stylus-loader'
-                    }]
+                        {
+                            loader:'postcss-loader'
+                        },
+                        {
+                            loader:'stylus-loader'
+                        }]
                 })
-            }
+            },
         ]
     },
     plugins:[
         new HtmlWebpackHarddiskPlugin(),
+        extractCss,
         extractStylus
     ]
 };

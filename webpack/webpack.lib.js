@@ -4,7 +4,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     output:{
         library:'lib',
-        libraryTarget:'umd'
+        libraryTarget:'umd',
+        libraryExport: 'default'
     },
     devtool:'cheap-eval-source-map',
     plugins:[

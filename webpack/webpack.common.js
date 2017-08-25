@@ -2,8 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-//const pj = require(path.resolve('package.json'));
-
 let extractStylus = new ExtractTextPlugin({
     filename:'[name].css'
 });
@@ -30,7 +28,7 @@ module.exports = {
             {
                 enforce: 'pre',
                 test: /\.js$/,
-                loader: 'eslint-loader',
+                use: 'eslint-loader',
                 include: [
                     path.resolve('source', 'lib'),
                     path.resolve('dev', 'source')
@@ -56,11 +54,14 @@ module.exports = {
                     use:[{
                             loader: 'css-loader',
                             options: {
-                                importLoaders: 1
+                                importLoaders: 2
                             }
                         },
                         {
-                            loader:'postcss-loader'
+                            loader:'postcss-loader',
+                            options:{
+                                sourceMap: true
+                            }
                         },
                         {
                             loader:'stylus-loader'
