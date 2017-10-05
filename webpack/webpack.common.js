@@ -41,7 +41,11 @@ module.exports = {
                     loader:'babel-loader',
                     options:{
                         presets:[
-                            'env'//https://babeljs.io/docs/plugins/preset-env/
+                            'env',//https://babeljs.io/docs/plugins/preset-env/
+                            'stage-3',//https://babeljs.io/docs/plugins/preset-stage-3/
+                        ],
+                        plugins:[
+                            'transform-decorators-legacy'
                         ],
                         cacheDirectory:true
                     }
@@ -50,8 +54,9 @@ module.exports = {
             {
                 test:/\.styl$/,
                 use:extractStylus.extract({
-                    fallback: "style-loader",
-                    use:[{
+                    fallback: 'style-loader',
+                    use:[
+                        {
                             loader: 'css-loader',
                             options: {
                                 importLoaders: 2
@@ -65,7 +70,8 @@ module.exports = {
                         },
                         {
                             loader:'stylus-loader'
-                        }]
+                        }
+                    ]
                 })
             }
         ]
